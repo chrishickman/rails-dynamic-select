@@ -1,13 +1,17 @@
 <h1>Dynamic Select</h1>
 
 <%= form_with do |form| %>
+
     <div style="margin:20px 0px;">
         <label><strong>Model</strong></label>
-        <%= select_tag :model_name, options_for_select([ "Please Select a Model", "Announcement", "Event" ]) %>
+        <%= select_tag :model_name, options_for_select([ "Please Select a Model", "Announcement", "Event" ], :class=>"model-select") %>
     </div>
+
     <div style="margin:20px 0px;">
         <label><strong>Record</strong></label>
-        <%= select_tag :record, options_for_select([ ""]) %>
+        <%= collection_select(:record, :record_id, @records, :id, :title, {prompt: true}, {:class=>"record-select"}) %>
     </div>
+
     <%= submit_tag "Submit" %>
+    
   <% end %>
