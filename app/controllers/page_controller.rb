@@ -4,8 +4,8 @@ class PageController < ApplicationController
     @records = []
   end
 
-  def get_records
-    @records = params[:model_name].constantize.all
+  def get_records #don't forget to add the route!
+    @records = params[:model_name].capitalize.constantize.all 
   end
 
 end

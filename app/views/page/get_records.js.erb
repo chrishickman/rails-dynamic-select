@@ -1,0 +1,5 @@
+$('.record_select').empty();
+$('.record_select').append( $('<option>Select the Record</option>'));
+<% @records.each do |record| %>
+  $('.record_select').append($('<option value="<%= record.id %>"><%= record.title %></option>'));
+<% end %>
